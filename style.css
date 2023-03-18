@@ -1,0 +1,440 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  font-family: "Epilogue", sans-serif;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(0, 0%, 98%);
+}
+
+.heroImageDesktop {
+  display: none;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  background-color: hsl(0, 0%, 98%);
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 70vw;
+  list-style: none;
+  gap: 1rem;
+  margin-block: 0;
+  -webkit-margin-start: 2rem;
+          margin-inline-start: 2rem;
+  transition: 500ms ease-in;
+}
+
+.navClosed {
+  transform: translateX(100vw);
+  transition: 500ms ease-in;
+}
+
+.navList::after {
+  content: "";
+  background-color: hsl(0, 0%, 8%);
+  opacity: 0.75;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30vw;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-inline: 0.5rem;
+  padding-block: 1rem;
+}
+
+.menuButton {
+  border: 0;
+  background-color: transparent;
+}
+
+.menuCloseButton {
+  border: 0;
+  background: transparent;
+  margin-right: 0;
+  width: 100%;
+  -webkit-padding-before: 1rem;
+          padding-block-start: 1rem;
+}
+.menuCloseButton img {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.dropdownBox {
+  display: flex;
+  flex-direction: column;
+  padding-block: 1rem;
+}
+.dropdownBox ul {
+  list-style: none;
+  padding-block: 0;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.dropdownBox ul li {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.dropdownClosed {
+  display: none;
+}
+
+.menuOption {
+  display: flex;
+  flex-direction: column;
+}
+.menuOption img {
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+.menuOption a {
+  text-decoration: none;
+  color: hsl(0, 0%, 41%);
+}
+
+.arrowWrapper {
+  display: flex;
+  flex-direction: row;
+}
+.arrowWrapper img {
+  margin-inline: 1rem;
+}
+
+.loginRegister {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  gap: 0.5rem;
+}
+.loginRegister button {
+  background-color: transparent;
+  width: 100%;
+  border-radius: 15px;
+  padding: 0.5em 0em;
+  border: 0;
+}
+.loginRegister button:last-of-type {
+  border: 2px solid hsl(0, 0%, 41%);
+}
+.loginRegister button a {
+  text-decoration: none;
+  color: hsl(0, 0%, 41%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-left: auto;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .menuOption a {
+    font-size: clamp(0.75rem, 4vw, 1.25rem);
+  }
+  .loginRegister button a {
+    font-size: clamp(0.75rem, 4vw, 1.25rem);
+  }
+}
+@media only screen and (min-width: 768px) {
+  header {
+    padding-block: 2rem;
+  }
+  .logo {
+    padding-left: 1rem;
+  }
+  nav {
+    padding-right: 1rem;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    background-color: hsl(0, 0%, 98%);
+    width: 95%;
+    margin-inline: auto;
+    padding-block: 2rem;
+  }
+  .logo {
+    -o-object-fit: scale-down;
+       object-fit: scale-down;
+  }
+  nav {
+    background-color: hsl(0, 0%, 98%);
+    flex-grow: 1;
+  }
+  .navList {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    background-color: hsl(0, 0%, 98%);
+    align-items: center;
+    margin-left: auto;
+    gap: 2rem;
+  }
+  .navList li {
+    z-index: 20;
+  }
+  .navList li:hover .dropdownBox, .navList li:focus-within .dropdownBox {
+    display: flex;
+  }
+  .navList li:hover a:hover,
+  .navList li:hover a:focus, .navList li:focus-within a:hover,
+  .navList li:focus-within a:focus {
+    color: hsl(0, 0%, 8%);
+  }
+  .navList a {
+    font-size: clamp(1rem, 1.2vw, 1.5rem);
+  }
+  .loginRegister {
+    display: flex;
+    flex-direction: row;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-left: auto;
+  }
+  .loginRegister button {
+    padding: 0.5em 2em;
+  }
+  .loginRegister button:hover a, .loginRegister button:focus-within a {
+    color: hsl(0, 0%, 8%);
+  }
+  .loginRegister button:last-of-type:hover, .loginRegister button:last-of-type:focus-within {
+    border: 2px solid hsl(0, 0%, 8%);
+    transition: 200ms ease-in;
+    cursor: pointer;
+  }
+  .loginRegister button:last-of-type:hover a, .loginRegister button:last-of-type:focus-within a {
+    color: hsl(0, 0%, 8%);
+  }
+  .dropdownBox {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 15px;
+    padding: 1rem;
+    z-index: 0;
+    top: 80%;
+    box-shadow: 0px 3px 20px rgba(20, 20, 20, 0.2);
+  }
+  .dropdownBox:first-of-type {
+    z-index: 15;
+  }
+  .dropdownBox:hover {
+    display: flex;
+  }
+  .dropdownClosed {
+    display: none;
+  }
+  .navList::after {
+    display: none;
+  }
+  .navClosed {
+    display: flex;
+    transform: none;
+  }
+  .menuButton,
+  .menuCloseButton {
+    display: none;
+  }
+}
+main {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.heroText {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 3rem;
+}
+.heroText h1 {
+  font-size: clamp(1rem, 8vw, 3rem);
+}
+.heroText p {
+  max-width: 30ch;
+  color: hsl(0, 0%, 41%);
+  font-size: clamp(0.75rem, 4vw, 1.5rem);
+}
+.heroText button {
+  border: 0;
+  background-color: hsl(0, 0%, 8%);
+  border-radius: 15px;
+  padding: 0.5em 1em;
+  border: 1px solid hsl(0, 0%, 8%);
+}
+.heroText button a {
+  text-decoration: none;
+  color: hsl(0, 0%, 98%);
+  width: 100%;
+  height: 100%;
+  font-size: clamp(0.75rem, 4vw, 1.5rem);
+}
+
+.sponsors {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 2rem;
+  padding-block: 3rem;
+}
+.sponsors img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: calc(20% - 1.5rem);
+}
+
+@media only screen and (min-width: 768px) {
+  .heroImageMobile {
+    max-width: 80vw;
+    margin-inline: auto;
+  }
+  .sponsors img {
+    width: 15vw;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: hsl(0, 0%, 98%);
+  }
+  .heroText {
+    text-align: left;
+    align-items: normal;
+    gap: 3rem;
+    padding-top: 10rem;
+  }
+  .heroText h1 {
+    font-size: clamp(2rem, 6vw, 5rem);
+    max-width: 11ch;
+    line-height: normal;
+  }
+  .heroText p {
+    font-size: clamp(1rem, 1.5vw, 2rem);
+  }
+  .heroText button {
+    width: -moz-fit-content;
+    width: fit-content;
+    border: 1px solid hsl(0, 0%, 8%);
+  }
+  .heroText button:hover, .heroText button:focus-within {
+    cursor: pointer;
+    background-color: hsl(0, 0%, 98%);
+    border: 1px solid hsl(0, 0%, 8%);
+    transition: 200ms ease-in;
+  }
+  .heroText button:hover a, .heroText button:focus-within a {
+    color: hsl(0, 0%, 8%);
+  }
+  .heroImageMobile {
+    display: none;
+  }
+  .heroImageDesktop {
+    display: block;
+    -o-object-fit: scale-down;
+       object-fit: scale-down;
+    width: 35vw;
+    max-height: 80vh;
+  }
+  .sponsors img {
+    width: 5vw;
+  }
+}/*# sourceMappingURL=style.css.map */
